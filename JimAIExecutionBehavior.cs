@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.Library;
 
 namespace JimAIExecutionMod
 {
@@ -15,7 +16,18 @@ namespace JimAIExecutionMod
             CampaignEvents.HeroPrisonerTaken.AddNonSerializedListener(this, new Action<TaleWorlds.CampaignSystem.Party.PartyBase, Hero>(
                 (captureParty, prisoner) =>
                 {
-                    KillCharacterAction.ApplyByExecution(prisoner, captureParty.LeaderHero, true);
+                    try
+                    {
+                        if (!(prisoner == Hero.MainHero))
+                        {
+                            KillCharacterAction.ApplyByExecution(prisoner, captureParty.LeaderHero, true);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                        InformationManager.DisplayMessage(new InformationMessage(ex.Message));
+                    }
                 }
                 ));
         }
