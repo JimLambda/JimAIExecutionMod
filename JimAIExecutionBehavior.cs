@@ -21,7 +21,7 @@ namespace JimAIExecutionMod
                 {
                     try
                     {
-                        if (!(prisoner == Hero.MainHero))
+                        if (!(prisoner == Hero.MainHero || captureParty.LeaderHero == Hero.MainHero))
                         {
                             KillCharacterAction.ApplyByExecution(prisoner, captureParty.LeaderHero, true);
                             //// The following line will create an execution scene, just like when player(the main hero) is executing a hero.
