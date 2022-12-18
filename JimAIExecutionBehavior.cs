@@ -27,7 +27,7 @@ namespace JimAIExecutionMod
                         ReadConfigurationFromOuterFile.SetConfigurationDataToDefault();
                         ReadConfigurationFromOuterFile.ReadDataFromConfigurationFile();
 
-                        if (!(prisoner == Hero.MainHero || captureParty.LeaderHero == Hero.MainHero))
+                        if (!(prisoner == Hero.MainHero || captureParty.LeaderHero == Hero.MainHero || captureParty.LeaderHero is null))
                         {
                             Double executionProbability = 100;
 
