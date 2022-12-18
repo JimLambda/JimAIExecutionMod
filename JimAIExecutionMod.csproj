@@ -225,6 +225,7 @@
     <Compile Include="JimAIExecutionBehavior.cs" />
     <Compile Include="MySubModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadConfigurationFromOuterFile.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
